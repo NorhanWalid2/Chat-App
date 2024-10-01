@@ -8,13 +8,13 @@ class CustomTextField extends StatelessWidget {
     required this.hint,
     required this.labeltextt,
     required this.obscure,
-    required this.icon,
+    this.icon,
     required this.onchange,
   });
   String labeltextt;
   bool obscure;
   String hint;
-  Widget icon;
+  Widget? icon;
   TextEditingController controller = TextEditingController();
   Function(String) onchange;
   @override
