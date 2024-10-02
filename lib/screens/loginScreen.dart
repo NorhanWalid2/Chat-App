@@ -1,6 +1,7 @@
 //import 'package:chat_app/main.dart';
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/screens/chat_screen.dart';
+import 'package:chat_app/screens/cubit/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/screens/cubit/login_cubit/login_cubit.dart';
 import 'package:chat_app/screens/signup_screen.dart';
 import 'package:chat_app/widgets/custom_button.dart';
@@ -31,7 +32,8 @@ class _LoginScreenState extends State<LoginScreen> {
         if (state is LoginLoading) {
           isLoading = true;
         } else if (state is LoginSucess) {
-          Navigator.pushNamed(context, ChatScreen.id);
+          BlocProvider.of<ChatCubit>(context).recieveMessage();
+          Navigator.pushNamed(context, ChatScreen.id, arguments: email);
           isLoading = false;
         } else if (state is LoginFailure) {
           isLoading = false;

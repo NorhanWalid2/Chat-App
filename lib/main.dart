@@ -1,5 +1,6 @@
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/screens/chat_screen.dart';
+import 'package:chat_app/screens/cubit/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/screens/cubit/login_cubit/login_cubit.dart';
 import 'package:chat_app/screens/cubit/sign_up_cubit/sign_up_cubit.dart';
 import 'package:chat_app/screens/loginScreen.dart';
@@ -28,6 +29,9 @@ class RelaxCofee extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SignUpCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ChatCubit(),
         ),
       ],
       child: MaterialApp(
